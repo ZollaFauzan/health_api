@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: health-api
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn health_api.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: health_api.settings
+      - key: PYTHON_VERSION
+        value: 3.10
